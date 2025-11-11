@@ -7,9 +7,9 @@ import { useState, useEffect } from "react";
   - Permite mantener la información (por ejemplo, series favoritas)
     incluso si el usuario recarga o cierra la página.
  
-  @param {string} clave Nombre de la clave bajo la cual se guardarán los datos en localStorage.
-  @param {*} valorInicial Valor inicial si no hay datos guardados todavía.
-  @returns {[any, function]} Devuelve un array con el valor guardado y una función para actualizarlo.
+  @param {string} clave //Nombre de la clave bajo la cual se guardarán los datos en localStorage.
+  @param {*} valorInicial //Valor inicial si no hay datos guardados todavía.
+  @returns {[any, function]} //Devuelve un array con el valor guardado y una función para actualizarlo.
  */
 
 export function useLocalStorage(clave, valorInicial) {

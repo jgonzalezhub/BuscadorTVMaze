@@ -1,42 +1,128 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* 
+  Contenedor principal de la aplicación.
+  Ocupa toda la altura de la pantalla y organiza los elementos verticalmente.
+*/
+.app {
+  min-height: 100vh;              /* Hace que la app siempre ocupe al menos toda la altura visible */
+  width: 100%;                    /* Se ajusta al ancho completo del viewport */
+  display: flex;                  /* Usa flexbox para organizar los hijos */
+  flex-direction: column;         /* Coloca los elementos en columna (header, main, footer...) */
+  background-color: #5c6bc0;      /* Fondo  */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* 
+  CABECERA (HEADER)
+  Se mantiene visible al hacer scroll (sticky) y usa un fondo translúcido con desenfoque para un efecto moderno.
+*/
+.app-header {
+  background: rgba(255, 255, 255, 0.95); /* Fondo blanco */
+  padding: var(--space-md) var(--space-lg); /* Espaciado interior vertical y horizontal */
+  position: sticky;                      /* Fija el header en la parte superior al hacer scroll */
+  top: 0;                                /* Ancla al borde superior */
+  z-index: 1000;                         /* Asegura que quede por encima de otros elementos */
+  border-bottom: 2px solid #5c6bc0;      /* Línea inferior con el tono morado claro */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* 
+  Título principal dentro del header.
+  Se aplica directamente el color morado claro sin degradado.
+*/
+.app-title {
+  font-size: 2.5rem;                   /* Tamaño grande de fuente */
+  font-weight: 800;                    /* Texto muy grueso */
+  text-align: center;                  /* Centra el título */
+  margin-bottom: var(--space-sm);      /* Espacio inferior */
+  letter-spacing: -0.5px;              /* Reduce ligeramente el espaciado entre letras */
+  color: #5c6bc0;                      /* Morado claro */
+}
+
+/* 
+  Contenedor principal (MAIN)
+  Alberga el contenido dinámico: resultados, listas, etc.
+*/
+.app-main {
+  flex: 1;                            /* Ocupa el espacio restante del layout */
+  width: 100%;                        /* Usa todo el ancho disponible */
+  max-width: 1400px;                  /* Limita el ancho máximo en pantallas grandes */
+  margin: 0 auto;                     /* Centra el contenido horizontalmente */
+  padding: var(--space-lg);           /* Espaciado interior amplio */
+}
+
+/* 
+  Secciones de contenido.
+  Cada sección (como resultados o favoritos) está contenida en un panel con fondo blanco, bordes redondeados y acentos en morado claro.
+*/
+.content-section {
+  background: #ffffff;                /* Fondo blanco */
+  border-radius: 20px;                /* Bordes redondeados */
+  padding: var(--space-lg);           /* Espaciado interno */
+  margin-bottom: var(--space-lg);     /* Espacio entre secciones */
+  border: 1px solid #5c6bc0;          /* Borde morado claro */
+  box-shadow: 0 2px 10px rgba(92, 107, 192, 0.1); /* Sombra suave con tono morado */
+}
+
+/* 
+  Título de cada sección de contenido.
+  Se muestra junto a iconos o elementos visuales.
+*/
+.section-title {
+  font-size: 1.8rem;                  /* Tamaño del texto del título */
+  font-weight: 700;                   /* Fuente en negrita */
+  color: #5c6bc0;                   /* Morado claro */
+  margin-bottom: var(--space-md);     /* Espaciado inferior */
+  display: flex;                      /* Permite alinear íconos con el texto */
+  align-items: center;                /* Centra verticalmente el contenido */
+  gap: var(--space-xs);               /* Espaciado entre elementos (texto e icono) */
+}
+
+/* 
+  Estado de carga (por ejemplo: "Cargando...").
+  Se usa para mostrar feedback visual mientras la app obtiene datos.
+*/
+.loading-state {
+  text-align: center;                 /* Centra el texto */
+  padding: var(--space-xl);           /* Espaciado interno grande */
+  color: #5c6bc0;                   /* Morado claro */
+  font-size: 1.2rem;                  /* Tamaño de fuente moderado */
+}
+
+/* 
+  Estado de error (por ejemplo: “Error al cargar datos”).
+  Aparece cuando ocurre un problema con la obtención de información.
+*/
+.error-state {
+  background: rgba(239, 68, 68, 0.1); /* Fondo rojo  */
+  border: 1px solid rgba(239, 68, 68, 0.3); /* Borde rojo claro */
+  color: #dc2626;                     /* Texto rojo  */
+  padding: var(--space-md);           /* Espaciado interior */
+  border-radius: 12px;                /* Bordes suavemente redondeados */
+  text-align: center;                 /* Texto centrado */
+  margin: var(--space-md) 0;          /* Espaciado vertical */
+}
+
+/* 
+  Responsive design (tablets y móviles).
+  Ajusta tamaños y espaciado para pantallas pequeñas.
+*/
+@media (max-width: 768px) {
+  .app-header {
+    padding: var(--space-sm);         /* Reduce el padding del header */
   }
-  to {
-    transform: rotate(360deg);
+  
+  .app-title {
+    font-size: 2rem;                  /* Disminuye el tamaño del título */
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  
+  .app-main {
+    padding: var(--space-sm);         /* Reduce el espaciado lateral */
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  
+  .content-section {
+    padding: var(--space-md);         /* Menos padding en secciones */
+    margin-bottom: var(--space-md);   /* Menor separación entre secciones */
+  }
+  
+  .section-title {
+    font-size: 1.5rem;                /* Títulos un poco más pequeños */
+  }
 }

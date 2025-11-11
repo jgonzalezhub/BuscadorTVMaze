@@ -1,7 +1,7 @@
 /*
-    Muestra una tarjeta con el resumen de una serie.
-    Al hacer clic en la imagen muestra los detalles.
- */
+  Al hacer clic en la imagen abre el modal de detalles.
+  Permite alternar favoritos con el botón de estrella.
+*/
 import "./ResumenSerie.css";
 
 export default function ResumenSerie({ serie, onSeleccionarSerie, onAlternarFavorito, esFavorito }) {
@@ -9,8 +9,8 @@ export default function ResumenSerie({ serie, onSeleccionarSerie, onAlternarFavo
 
   return (
     <div className="resumen-serie">
-      
-      {/* Mostrar la imagen solo si existe */}
+
+      {/* Imagen de la serie, clic para abrir detalles */}
       {serie.image && serie.image.medium && (
         <img
           src={serie.image.medium}
@@ -19,11 +19,14 @@ export default function ResumenSerie({ serie, onSeleccionarSerie, onAlternarFavo
         />
       )}
 
-      {/* Mostrar el nombre solo si existe */}
+      {/* Nombre de la serie */}
       {serie.name && <h3>{serie.name}</h3>}
 
-      {/* Botón de favorito */}
-      <button onClick={() => onAlternarFavorito(serie)}>
+      {/* Botón de favoritos */}
+      <button 
+        className={esFavorito ? "favorito" : ""}
+        onClick={() => onAlternarFavorito(serie)}
+      >
         {esFavorito ? "★ Quitar de favoritos" : "☆ Añadir a favoritos"}
       </button>
     </div>

@@ -4,36 +4,37 @@
 
 import "./ListaDeSeriesFav.css";
 
- export default function ListaDeSeriesFav({ favoritos, onSeleccionarSerie, onAlternarFavorito }) {
-  if (!favoritos || favoritos.length === 0) {
-    return <p>No tienes series favoritas todavía.</p>;
-  }
+export default function ListaDeSeriesFav({ favoritos, onSeleccionarSerie, onAlternarFavorito }) {
+    if (!favoritos || favoritos.length === 0) {
+        return <p>No tienes series favoritas todavía.</p>;// Mensaje si no hay favoritos
+     }
 
-  return (
-    <div className="lista-favoritos">
-      <h2>Mis Series Favoritas</h2>
+    return (
+        <div className="lista-favoritos">
+        <h2>Mis Series Favoritas</h2>
 
-      <div className="contenedor-favoritos">
-        {favoritos.map((serie) => (
-          <div key={serie.id} className="favorito-item">
-            
-            {/* Mostrar imagen solo si existe */}
-            {serie.image && serie.image.medium && (
-              <img
-                src={serie.image.medium}
-                alt={serie.name || "Imagen de la serie"}
-                onClick={() => onSeleccionarSerie(serie)}
-              />
-            )}
+        {/* Contenedor de favoritos */}
+        <div className="contenedor-favoritos">
+            {favoritos.map((serie) => (
+            <div key={serie.id} className="favorito-item">
+                
+                {/* Mostrar imagen solo si existe */}
+                {serie.image && serie.image.medium && (
+                <img
+                    src={serie.image.medium}
+                    alt={serie.name || "Imagen de la serie"}
+                    onClick={() => onSeleccionarSerie(serie)}
+                />
+                )}
 
-            {/* Mostrar nombre solo si existe */}
-            {serie.name && <h3>{serie.name}</h3>}
+                {/* Mostrar nombre solo si existe */}
+                {serie.name && <h3>{serie.name}</h3>}
 
-            {/* Botón para quitar de favoritos */}
-            <button onClick={() => onAlternarFavorito(serie)}>Quitar</button>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+                {/* Botón para quitar de favoritos */}
+                <button onClick={() => onAlternarFavorito(serie)}>Eliminar de favoritos</button>
+            </div>
+            ))}
+        </div>
+        </div>
+    );
 }

@@ -1,68 +1,60 @@
+/* RESET Y CONFIGURACIÓN GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Incluye padding y borde dentro del tamaño de los elementos */
+}
+
+/* VARIABLES GLOBALES */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* Colores principales */
+  --primary-color: #5c6bc0;      /* Morado claro principal usado en App.css */
+  --secondary-color: #3949ab;    /* Morado más oscuro para acentos */
+  --third-color: #3c03a0;        /* Morado oscuro para textos y detalles */
+  --complementary-color: #f49128;        /* Naranja para destacar*/
+  --complementary-dark: #fd7701;   /* Naranja más oscuro para hover */
+  --eliminarFav-color: #ff4a21
+  --neutral-white: #ffffff;
+  --neutral-dark: #333333;
+  --error-color: #ee2a2a;
+  
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Espaciado consistente */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* BASE DE LAYOUT */
+html, body, #root {
+  height: 100%;
+  width: 100%;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--neutral-light); /* Fondo general */
+  color: var(--neutral-dark);             /* Texto por defecto */
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* SCROLLBAR PERSONALIZADO */
+::-webkit-scrollbar {
+  width: 8px;/* Ancho del scrollbar */
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+::-webkit-scrollbar-track {
+  border-radius: 10px;/* Bordes redondeados */
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+::-webkit-scrollbar-thumb {
+  background: #f49128; /* Naranja claro */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fd7701; /* Naranja más oscuro al pasar el ratón */
 }

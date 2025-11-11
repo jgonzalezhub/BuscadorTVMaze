@@ -7,14 +7,18 @@ import "./DetallesDeSerie.css";
 
 
 export default function DetallesDeSerie({ serie, onCerrar, onAlternarFavorito, esFavorita }) {
+  //serie: objeto con los detalles de la serie seleccionada
+  //onCerrar: función para cerrar el modal de detalles
+  //onAlternarFavorito: función para añadir o quitar de favoritos
+  //esFavorita: booleano que indica si la serie es favorita
   if (!serie) return null;
 
   return (
-    <div className="modal-detalles">
-      <div className="modal-contenido">
-        <button className="cerrar" onClick={onCerrar}>✖</button>
+    <div className="modal-detalles"> {/* Fondo del modal */}
+      <div className="modal-contenido"> {/* Contenido del modal */}
+        <button className="cerrar" onClick={onCerrar}>✖</button> {/* Botón para cerrar el modal */}
 
-        {serie.name && <h2>{serie.name}</h2>}
+        {serie.name && <h2>{serie.name}</h2>} {/* Mostrar el nombre solo si existe */}
 
         {serie.image && serie.image.medium && (
           <img
@@ -44,9 +48,10 @@ export default function DetallesDeSerie({ serie, onCerrar, onAlternarFavorito, e
 
         {/* Botón de favorito dentro del modal */}
         <button onClick={() => onAlternarFavorito(serie)}>
-          {esFavorita ? "Quitar de favoritos" : "Añadir a favoritos"}
+          {esFavorita ? "Eliminar de favoritos" : "Añadir a favoritos"}
         </button>
       </div>
     </div>
   );
 }
+
