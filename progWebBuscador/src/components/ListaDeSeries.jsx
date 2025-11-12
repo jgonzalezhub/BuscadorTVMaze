@@ -1,6 +1,6 @@
 /*
  Muestra todas las series que devuelve la búsqueda.
-Cuando se hace clic en una serie, muestra su descripción justo debajo.
+  Cuando se hace clic en una serie, muestra su descripción justo debajo.
 
  Recibe:
  - series: array de series de TVMaze
@@ -15,7 +15,7 @@ import "./ListaDeSeries.css";
 
 
 export default function ListaDeSeries({ series, onAlternarFavorito, favoritos }) {
-const [serieAbierta, setSerieAbierta] = useState(null); // Serie cuyo resumen está visible
+  const [serieAbierta, setSerieAbierta] = useState(null); // Serie cuyo resumen está visible
 
   if (!series || series.length === 0) {
     return <p>No hay series para mostrar. Prueba a buscar otra.</p>;
@@ -49,11 +49,9 @@ const [serieAbierta, setSerieAbierta] = useState(null); // Serie cuyo resumen es
             {abierta && (
               <div className="detalle-inline">
                 {serie.summary ? (
-                    <div
-                        dangerouslySetInnerHTML={{ __html: serie.summary }}
-                    />
+                  <div dangerouslySetInnerHTML={{ __html: serie.summary }} />
                 ) : (
-                    <p>Sin descripción disponible.</p>
+                  <p>Sin descripción disponible.</p>
                 )}
               </div>
             )}
@@ -63,4 +61,3 @@ const [serieAbierta, setSerieAbierta] = useState(null); // Serie cuyo resumen es
     </div>
   );
 }
-               

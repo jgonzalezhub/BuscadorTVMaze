@@ -1,0 +1,76 @@
+/* Contenedor principal de favoritos */
+.lista-favoritos {
+	padding: 2rem;                     /* Espacio general */
+	text-align: center;                /* Centrado del contenido */
+}
+
+
+/* Grid de tarjetas de favoritos */
+.contenedor-favoritos {
+	display: grid; 
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Columnas adaptables */
+	gap: 1.5rem;                         /* Separación entre tarjetas */
+}
+
+/* Tarjeta de favorito */
+.favorito-item {
+	background-color: var(--neutral-white);   /* Fondo blanco */
+	border-radius: 1rem;                      /* Bordes redondeados */
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08); /* Sombra ligera */
+	padding: 1rem;                            /* Espaciado interno */
+	transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animación suave */
+}
+
+/* Efecto hover en la tarjeta */
+.favorito-item:hover {
+	transform: translateY(-4px);             /* Levanta la tarjeta */
+	box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1); /* Sombra más intensa */
+}
+
+/* Imagen del favorito */
+.favorito-item img {
+	width: 100%;                         /* Ocupa todo el ancho del contenedor */
+	max-width: 150px;                    /* Tamaño máximo fijo para que no se agrande */
+	height: auto;                        /* Mantiene proporción original */
+	object-fit: cover;                   /* Ajusta la imagen dentro del tamaño sin deformar */
+	display: block;                      /* Evita espacio extraño debajo */
+	margin: 0 auto 0.5rem auto;          /* Centrado horizontal con margen inferior */
+	border-radius: 0.75rem;              /* Bordes redondeados */
+	cursor: pointer;                     /* Indicador de acción */
+}
+
+
+/* Nombre del favorito */
+.favorito-item h3 {
+	font-size: 1rem;                          /* Tamaño estándar */
+	margin: 0.5rem 0;                         /* Espaciado vertical */
+	color: var(--secondary-color);            /* Morado oscuro */
+}
+
+/* Botón de acción dentro de la tarjeta */
+.favorito-item button {
+	background-color: #ff4a21; 
+	color: var(--neutral-dark);                
+	border-radius: 1.5rem;                        /* Bordes redondeados */
+	padding: 0.4rem 1rem;                         /* Espaciado cómodo */
+	font-size: 0.9rem;                            /* Texto pequeño */
+	cursor: pointer;                              /* Indicador de acción */
+	transition: background-color 0.3s ease, transform 0.1s ease; /* Animación suave */
+}
+
+/* Efecto hover del botón */
+.favorito-item button:hover {
+	background-color: #ff4a21;                  /* Naranja más oscuro en hover */
+}
+
+/* Presionar botón */
+.favorito-item button:active {
+	transform: scale(0.97);                     /* Efecto al pulsar */
+}
+
+/* Mensaje cuando no hay favoritos */
+.lista-favoritos > p {
+	color: var(--neutral-gray);                   /* Gris neutro */
+	font-style: italic;                           /* Cursiva ligera */
+	margin-top: 2rem;                             /* Separación superior */
+}

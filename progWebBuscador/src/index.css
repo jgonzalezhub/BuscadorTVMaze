@@ -13,7 +13,7 @@
   --third-color: #3c03a0;        /* Morado oscuro para textos y detalles */
   --complementary-color: #f49128;        /* Naranja para destacar*/
   --complementary-dark: #fd7701;   /* Naranja más oscuro para hover */
-  --eliminarFav-color: #ff4a21
+  --eliminarFav-color: #ff4a21 ;   /* Rojo para eliminar favoritos */
   --neutral-white: #ffffff;
   --neutral-dark: #333333;
   --error-color: #ee2a2a;
@@ -43,7 +43,7 @@ body {
 
 /* SCROLLBAR PERSONALIZADO */
 ::-webkit-scrollbar {
-  width: 8px;/* Ancho del scrollbar */
+  width: 9px;/* Ancho del scrollbar */
 }
 
 ::-webkit-scrollbar-track {

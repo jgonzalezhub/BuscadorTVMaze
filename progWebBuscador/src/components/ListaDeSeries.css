@@ -1,0 +1,68 @@
+/* 
+  LISTA DE SERIES
+  Estilos para la presentación de la lista de series obtenidas de la búsqueda.
+  Utiliza un diseño de cuadrícula responsivo con tarjetas de serie que tienen efectos hover
+*/
+
+/* Contenedor de la lista de series */
+.lista-series {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+/* Cada item de serie */
+.serie-item {
+    background-color: #fff;
+    border-radius: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animación */
+    overflow: hidden; /* Evita que el contenido sobresalga de los bordes redondeados */
+}
+
+/* Efecto hover en cada tarjeta de serie */
+.serie-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1); /* Sombra más intensa */
+}
+
+/* Resumen de serie (usualmente un componente hijo con imagen y título) */
+.serie-item .resumen-serie {
+    cursor: pointer;
+    padding: 1rem;
+}
+
+/* Contenedor del detalle expandido */
+.detalle-inline {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.5;
+}
+
+/* Animación suave cuando se abre */
+.detalle-inline {
+    animation: aparecerDetalle 0.3s ease;
+}
+
+/* Definición de la animación */
+@keyframes aparecerDetalle {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);/* Desplazamiento ligero hacia arriba */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);/* Posición normal */
+    }
+}
+
+/* Mensaje de "sin resultados" */
+.lista-series > p,/* Mensaje cuando no hay series que mostrar */
+.lista-series p {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}

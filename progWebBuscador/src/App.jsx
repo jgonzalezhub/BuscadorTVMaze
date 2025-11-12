@@ -9,7 +9,7 @@ import ListaDeSeriesFav from "./components/ListaDeSeriesFav.jsx";
 import DetallesDeSerie from "./components/DetallesDeSerie.jsx";
 
 // Hook personalizado para guardar favoritos en localStorage
-import { useLocalStorage } from "./hooks/useLocalStorage.jsx";
+import { useLocalStorage } from "./hook/useLocalStorage.jsx";
 
 function App() {
   // ESTADOS GLOBALES

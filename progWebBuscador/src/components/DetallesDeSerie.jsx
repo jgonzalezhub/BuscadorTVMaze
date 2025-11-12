@@ -48,10 +48,9 @@ export default function DetallesDeSerie({ serie, onCerrar, onAlternarFavorito, e
 
         {/* Botón de favorito dentro del modal */}
         <button onClick={() => onAlternarFavorito(serie)}>
-          {esFavorita ? "Eliminar de favoritos" : "Añadir a favoritos"}
+          {esFavorita ? "★ Eliminar de favoritos" : "☆ Añadir a favoritos"}
         </button>
       </div>
     </div>
   );
 }
-

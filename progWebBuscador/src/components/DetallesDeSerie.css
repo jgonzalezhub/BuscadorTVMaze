@@ -1,0 +1,151 @@
+/* 
+  MODAL DE DETALLES DE SERIE
+  Muestra una tarjeta de información detallada sobre la serie seleccionada.
+  Utiliza la paleta de colores determinada, bordes redondeados y un fondo translúcido para resaltar el contenido.
+*/
+
+/* Fondo del modal (oscurece el fondo del sitio) */
+.modal-detalles {
+  position: fixed;/* Fija el modal en la pantalla */
+  top: 0;
+  left: 0;
+  width: 100vw;/* Ocupa todo el ancho de la ventana */
+  height: 100vh;/* Ocupa toda la altura de la ventana */
+  background: rgba(0, 0, 0, 0.6); /* Fondo negro translúcido */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(4px); /* Suaviza el fondo */
+}
+
+/* Contenedor principal del contenido del modal */
+.modal-contenido {
+  background-color: var(--neutral-white);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  position: relative;
+  animation: aparecer 0.25s ease-out;
+}
+
+/* Animación de entrada */
+@keyframes aparecer {
+  from {
+    transform: scale(0.9); 
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Botón de cierre */
+.cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: var(--neutral-dark);
+  transition: color 0.3s ease;
+}
+
+.cerrar:hover {
+  color: var(--primary-color);
+}
+
+/* Título de la serie */
+.modal-contenido h2 {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+/* Imagen de la serie */
+.modal-contenido img {
+  display: block;
+  margin: 1rem auto;
+  border-radius: 0.75rem;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Descripción */
+.descripcion {
+  color: var(--neutral-dark);
+  line-height: 1.6;
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+/* Información adicional (géneros, idioma, rating) */
+.modal-contenido p {
+  color: var(--neutral-dark);
+  font-size: 0.95rem;
+  margin: 0.4rem 0;
+}
+
+.modal-contenido strong {
+  color: var(--secondary-color);
+}
+
+/* Botón de añadir/eliminar favorito */
+.modal-contenido button:not(.cerrar) {
+  display: block;
+  margin: 1.5rem auto 0;
+  background-color: var(--eliminarFav-color);
+  color: var(--neutral-dark);
+  border: none;
+  border-radius: 2rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+/* Efecto hover y activo del botón */
+.modal-contenido button:not(.cerrar):hover {
+  background-color: var(--complenentary-dark);
+}
+
+/* Presionar botón */
+.modal-contenido button:not(.cerrar):active {
+  transform: scale(0.97);
+}
+
+/* Scroll suave dentro del modal si hay mucho contenido */
+.modal-contenido::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Estilo de la barra de desplazamiento */
+.modal-contenido::-webkit-scrollbar-thumb {
+  background-color: var(--complementary-color);
+  border-radius: 10px;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 480px) {
+  .modal-contenido {
+    padding: 1.25rem;
+  }
+
+  .modal-contenido h2 {
+    font-size: 1.4rem;
+  }
+
+  .modal-contenido button:not(.cerrar) {
+    width: 100%;
+  }
+}

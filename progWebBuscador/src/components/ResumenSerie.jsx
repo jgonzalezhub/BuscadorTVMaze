@@ -27,7 +27,7 @@ export default function ResumenSerie({ serie, onSeleccionarSerie, onAlternarFavo
         className={esFavorito ? "favorito" : ""}
         onClick={() => onAlternarFavorito(serie)}
       >
-        {esFavorito ? "★ Quitar de favoritos" : "☆ Añadir a favoritos"}
+        {esFavorito ? "★ Eliminar de favoritos" : "☆ Añadir a favoritos"}
       </button>
     </div>
   );
