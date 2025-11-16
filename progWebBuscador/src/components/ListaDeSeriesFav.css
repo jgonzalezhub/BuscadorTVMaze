@@ -1,9 +1,14 @@
+/* 
+  LISTA DE SERIES FAVORITAS
+  Estilos para la sección de series favoritas.
+  Utiliza un diseño en grid para mostrar las tarjetas de las series favoritas 
+ */
+
 /* Contenedor principal de favoritos */
 .lista-favoritos {
 	padding: 2rem;                     /* Espacio general */
 	text-align: center;                /* Centrado del contenido */
 }
-
 
 /* Grid de tarjetas de favoritos */
 .contenedor-favoritos {
